@@ -9,6 +9,7 @@ public class Battle : MonoBehaviour
 	public Warplan[] warplans;
 	public List<Unit> units;
 	public List<Projectile> projectiles;
+	private bool isRunning = false;
 
 	void Start ()
 	{
@@ -39,6 +40,15 @@ public class Battle : MonoBehaviour
 	}
 
 	private void checkWin(){
-		//show win
+		Player winner = null;
+		foreach( Unit unit in units){
+			if (unit.checkDistance () <= 0) {
+				winner = unit.player;
+			}
+		}
+		if (winner != null) {
+			isRunning = false;
+			//showWinner
+		}
 	}
 }

@@ -13,11 +13,7 @@ public class Catapult : Weapon {
 		selectAmmo (0);
 	}
 
-	public override float getSpeed (Wheel wheel) {
-		return 4.4f;
-	}
+	public override float getBaseSpeed () { return 2f; }
 
-	public override float getBaseTime(){
-		return 6f;
-	}
+	public override float getBaseTime(){ return 6f; }
 }

@@ -11,10 +11,6 @@ public class Ram : Weapon {
 		selectAmmo (0);
 	}
 
-	public override float getSpeed (Wheel wheel) {
-		return 4.4f;
-	}
-	public override float getBaseTime(){
-		return 3f;
-	}
+	public override float getBaseSpeed() { return 4.4f; }
+	public override float getBaseTime(){ return 3f; }
 }

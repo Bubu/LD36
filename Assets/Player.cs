@@ -2,7 +2,14 @@
 using System.Collections;
 
 public class Player  {
+	public Warplan warplan;
+	public Stencil[] stencils;
 
 	public Player(){
+		this.warplan = new Warplan();
+		this.stencils = new Stencil[3];
+		for (int i = 0; i < stencils.Length; i++) {
+			stencils [i] = new Stencil (warplan.blueprints[i]);
+		}
 	}
 }

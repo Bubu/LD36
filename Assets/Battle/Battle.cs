@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Battle : MonoBehaviour
 {
 	public BattleField battleField;
+	public Player[] players;
 	public Warplan[] warplans;
 	public List<Unit> units;
 	public List<Projectile> projectiles;
@@ -12,15 +13,22 @@ public class Battle : MonoBehaviour
 	void Start ()
 	{
 		this.battleField = new BattleField();
-		this.warplans = new Warplan[2];
-		warplans [0] = new Warplan ();
-		warplans [1] = new Warplan ();
+		players = new Player[2];
+		players[0] = new Player();
+		players[1] = new Player();
 		units = new List<Unit>();
 		projectiles = new List<Projectile>();
 	}
 
 	public void step(){
-		//check for unit spawm
+		foreach(Player player in players){
+			foreach (Stencil stencil in  player.stencils) {
+				var newunit = stencil.step ();
+				if (newunit != null) {
+					units.Add (newunit);
+				}
+			}
+		}
 		foreach( Unit unit in units){
 			unit.step ();
 		}

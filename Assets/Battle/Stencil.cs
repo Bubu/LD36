@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Stancil {
+public class Stencil {
 
 	public int hp;
 	public float speed;
@@ -11,7 +11,7 @@ public class Stancil {
 	public float damage;
 	//public Blueprint blueprint;
 
-	public Stancil(Blueprint blueprint){
+	public Stencil(Blueprint blueprint){
 		this.hp = blueprint.armor.getHp ();
 		this.speed = blueprint.getSpeed();
 		this.damage = blueprint.getDamage ();
@@ -20,5 +20,9 @@ public class Stancil {
 	public Unit createUnit(){
 		Unit unit = new Unit ();
 		return unit;
+	}
+
+	public Unit step(){
+		return null;
 	}
 }

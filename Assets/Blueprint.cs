@@ -26,4 +26,10 @@ public class Blueprint {
 	public float getDamage(){
 		return weapon.activeAmmo.getDamage ();
 	}
+	public int getRange(){
+		return weapon.getRange ();
+	}
+	public int getLoadTime(){
+		return weapon.getLoadTime ();
+	}
 }

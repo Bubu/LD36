@@ -13,7 +13,12 @@ public class Catapult : Weapon {
 		selectAmmo (0);
 	}
 
-	public override float getBaseSpeed () { return 2f; }
+	public override int getBaseSpeed () { return 2; }
+	public override int getBaseTime(){ return 6; }
+	public override int getRange(){ return 10; }
+	public override int getLoadTime(){ return 10; }
+	public override Projectile attack(Unit target, Unit origin){
+		return new BallistaProjectile(origin, activeAmmo.getDamage(), GameResources.Instance.projectileTexList [activeAmmo.getTexIndex()]);
+	}
 
-	public override float getBaseTime(){ return 6f; }
 }

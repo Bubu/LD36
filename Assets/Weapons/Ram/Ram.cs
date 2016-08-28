@@ -11,6 +11,13 @@ public class Ram : Weapon {
 		selectAmmo (0);
 	}
 
-	public override float getBaseSpeed() { return 4.4f; }
-	public override float getBaseTime(){ return 3f; }
+	public override int getBaseSpeed() { return 4; }
+	public override int getBaseTime(){ return 3; }
+	public override int getRange(){ return 1; }
+	public override int getLoadTime(){ return 2; }
+
+	public override Projectile attack(Unit target, Unit origin){
+		target.makeDamage (activeAmmo.getDamage());
+		return null;
+	}
 }

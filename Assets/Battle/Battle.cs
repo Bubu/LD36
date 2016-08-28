@@ -11,18 +11,19 @@ public class Battle : MonoBehaviour
 	public List<Unit> units;
 	public List<Projectile> projectiles;
 	private bool isRunning = false;
+	public int leftHomePosition = 0;
+	public int rightHomePosition = 1000;
 	public GameObject endImage;
 	public GameObject uploadButton;
 	public DesignScript ds;
-
 
 	void Start ()
 	{
 		ds = GameObject.Find ("InitDesign").GetComponent<DesignScript> ();
 		//this.battleField = new BattleField();
 		players = new Player[2];
-		players[0] = new Player(ds.warplan);
-		players[1] = new Player(ds.warplan);
+		players[0] = new Player(ds.warplan, true, this);
+		players[1] = new Player(ds.warplan, false, this);
 		units = new List<Unit>();
 		projectiles = new List<Projectile>();
 	}

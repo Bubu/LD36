@@ -11,6 +11,12 @@ public class Ballista : Weapon {
 		selectAmmo (0);
 	}
 
-	public override float getBaseTime(){ return 5f; }
-	public override float getBaseSpeed(){ return 5f; }
+	public override int getBaseTime(){ return 5; }
+	public override int getBaseSpeed(){ return 5; }
+	public override int getRange(){ return 5; }
+	public override int getLoadTime(){ return 5; }
+
+	public override Projectile attack(Unit target, Unit origin){
+		return new BallistaProjectile(origin, activeAmmo.getDamage(), GameResources.Instance.projectileTexList [activeAmmo.getTexIndex()]);
+	}
 }

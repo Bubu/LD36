@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Armor : Element {
+public abstract class Armor : Element {
 
 }

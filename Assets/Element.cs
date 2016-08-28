@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class Element {
+public abstract class Element {
 
 	public int texIndex;
 

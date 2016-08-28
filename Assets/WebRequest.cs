@@ -8,9 +8,11 @@ using System.Text;
 
 public class WebRequest : MonoBehaviour {
 
+	public Warplan testplan;
+
 	// Use this for initialization
 	void Start () {
-	
+		testplan = new Warplan();	
 	}
 
 	// Update is called once per frame
@@ -19,19 +21,9 @@ public class WebRequest : MonoBehaviour {
 	}
 
 	public void doRequest() {
-
-		Dictionary<string, string> openWith = 
-			new Dictionary<string, string>();
-		openWith.Add("txt", "notepad.exe");
-		openWith.Add("bmp", "paint.exe");
-		openWith.Add("dib", "paint.exe");
-		openWith.Add("rtf", "wordpad.exe");
-
 		var client = new WebClient();
-
-
 		client.Headers.Add("Content-Type","application/json");
-		string json = new JavaScriptSerializer ().Serialize (openWith);
+		string json = new JavaScriptSerializer ().Serialize (testplan);
 		byte[] data = Encoding.ASCII.GetBytes(json);
 		byte[] responseArray = client.UploadData ("http://localhost:8080/plans",data);
 

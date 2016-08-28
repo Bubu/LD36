@@ -1,10 +1,9 @@
 ﻿using System;
 
-public class Unit
+public class Projectile
 {
-	public Unit ()
+	public Projectile ()
 	{
-		
 	}
 
 	public void step(){

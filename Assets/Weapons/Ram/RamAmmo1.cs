@@ -6,5 +6,7 @@ public class RamAmmo1 : RamAmmo {
 	public override int getTexIndex(){
 		return 6;
 	}
-
+	public override int getLevel(){
+		return 0;
+	}
 }

@@ -4,6 +4,7 @@ using System.Collections;
 public class Player  {
 	public Warplan warplan;
 	public Stencil[] stencils;
+	public int spawnPosition;
 
 	public Player(){
 		this.warplan = new Warplan();

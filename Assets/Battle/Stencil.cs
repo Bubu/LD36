@@ -7,17 +7,28 @@ public class Stencil {
 	public int hp;
 	public float speed;
 	public Sprite sprite;
+	public Sprite projectileSprite;
 	public int buildStep;
 	public int buildTime;
 	public float damage;
 	public Player player;
-	//public Blueprint blueprint;
+	public Battle battle;
+	public int range;
+	public int loadTime;
+	public Blueprint blueprint;
 
-	public Stencil(Blueprint blueprint){
+	public Stencil(Blueprint blueprint, Player player, Battle battle){
+		this.player = player;
+		this.battle = battle;
+
 		this.hp = blueprint.armor.getHp ();
 		this.speed = blueprint.getSpeed();
 		this.damage = blueprint.getDamage ();
 		this.buildTime = blueprint.getBuildTime ();
+		this.range = blueprint.weapon.getRange ();
+		this.loadTime = blueprint.getLoadTime ();
+
+		this.blueprint = blueprint;
 
 		this.buildStep = 0;
 
@@ -25,7 +36,6 @@ public class Stencil {
 		Texture2D activeArmorTex = GameResources.Instance.armorTexList [blueprint.armor.getTexIndex()];
 		Texture2D activeWeaponTex = GameResources.Instance.weaponTexList [blueprint.weapon.activeAmmo.getTexIndex()];
 
-		this.sprite = createSprite (activeWeaponTex, activeArmorTex, activeWheelTex);
 	}
 
 	public Unit step(){

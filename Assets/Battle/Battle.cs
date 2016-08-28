@@ -11,13 +11,15 @@ public class Battle : MonoBehaviour
 	public List<Unit> units;
 	public List<Projectile> projectiles;
 	private bool isRunning = false;
+	public int leftHomePosition = 0;
+	public int rightHomePosition = 1000;
 
 	void Start ()
 	{
 		this.battleField = new BattleField();
 		players = new Player[2];
-		players[0] = new Player();
-		players[1] = new Player();
+		players[0] = new Player(true, this);
+		players[1] = new Player(false, this);
 		units = new List<Unit>();
 		projectiles = new List<Projectile>();
 	}

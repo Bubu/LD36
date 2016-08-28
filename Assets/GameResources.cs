@@ -9,9 +9,21 @@ public class GameResources {
 	public List<Texture2D> weaponTexList;
 	public List<Texture2D> wheelTexList;
 	public List<Texture2D> armorTexList;
+	public List<Texture2D> projectileTexList;
 
 	private GameResources(){
 		weaponTexList = new List<Texture2D> (new Texture2D [] {
+			loadTex ("katapult_schlecht"),
+			loadTex ("katapult_gut"),
+			loadTex ("katapult_fehlt"),
+			loadTex ("baliste_schlecht"),
+			loadTex ("baliste_gut"),
+			loadTex ("baliste_fehlt"),
+			loadTex ("rammbock_schlecht"),
+			loadTex ("rammbock_gut"),
+			loadTex ("rammbock_fehlt"),
+		});
+		projectileTexList = new List<Texture2D> (new Texture2D [] {
 			loadTex ("katapult_schlecht"),
 			loadTex ("katapult_gut"),
 			loadTex ("katapult_fehlt"),

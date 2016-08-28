@@ -1,10 +1,14 @@
 ﻿using System;
 
-public class Projectile
-{
-	public Projectile ()
-	{
-	}
+public abstract class Projectile
+{	
+	public int speedX;
+	public int speedY;
+	public int gravity;
+	public int livingTime;
+	public bool colatteral;
+	public Unit origin;
+	public Unit target;
 
 	public void step(){
 		//Do stuff

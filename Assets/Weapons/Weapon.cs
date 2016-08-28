@@ -9,8 +9,7 @@ public abstract class Weapon {
 	public void selectAmmo(int ammoIndex){
 		activeAmmo = possibleAmmo[ammoIndex];
 	}
-
-	public abstract float getSpeed (Wheel wheel);
+	public abstract float getBaseSpeed ();
 	public abstract float getBaseTime ();
 
 }

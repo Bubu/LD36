@@ -10,4 +10,6 @@ public class CatapultAmmo1 : CatapultAmmo {
 	public override int getLevel(){
 		return 0;
 	}
+	public override int getDamage(){ return 10;}
+
 }

@@ -18,6 +18,12 @@ public class Blueprint {
 	}
 
 	private float getTimefactorForLevel(int level){
-		return 1f + 0.5f*level;
+		return 1f + 0.5f * level;
+	}
+	public float getSpeed(){
+		return weapon.getBaseSpeed() * wheel.getBaseSpeed();
+	}
+	public float getDamage(){
+		return weapon.activeAmmo.getDamage ();
 	}
 }

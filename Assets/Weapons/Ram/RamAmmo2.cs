@@ -9,4 +9,6 @@ public class RamAmmo2 : RamAmmo {
 	public override int getLevel(){
 		return 1;
 	}
+
+	public override int getDamage(){ return 2;}
 }

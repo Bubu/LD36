@@ -9,4 +9,7 @@ public class Wheel2 : Wheel {
 	public override int getLevel(){
 		return 1;
 	}
+	public override float getBaseSpeed(){
+		return 2f;
+	}
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Unit
 {
 	public int position;
-	public bool target;
+	public bool dead;
 	public Player player;
 	public Stencil stencil;
 	public int curHp;
@@ -73,5 +73,8 @@ public class Unit
 
 	public void makeDamage(int damage){
 		curHp -= damage;
+		if (curHp <= 0) {
+			dead = true;
+		}
 	}
 }

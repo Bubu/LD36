@@ -38,10 +38,18 @@ public class Battle : MonoBehaviour
 			}
 		}
 		foreach( Unit unit in units){
-			unit.step ();
+			if (unit.dead) { 
+				units.Remove (unit);
+			} else {
+				unit.step ();
+			}
 		}
 		foreach( Projectile projectile in projectiles){
-			projectile.step ();
+			if (projectile.dead) {
+				projectiles.Remove (projectile);
+			} else {
+				projectile.step ();
+			}
 		}
 		checkWin ();
 	}

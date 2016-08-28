@@ -15,7 +15,7 @@ public class ShowWheels : MonoBehaviour {
 
 	void Update () {
 		if (ds.activeBlueprint!=null){
-			Texture2D activeWheelTex = GameResources.Instance.wheelTexList [ds.activeBlueprint.wheel.texIndex];
+			Texture2D activeWheelTex = GameResources.Instance.wheelTexList [ds.activeBlueprint.wheel.getTexIndex()];
 			image.sprite = Sprite.Create(activeWheelTex,new Rect(0,0,activeWheelTex.width,activeWheelTex.height),new Vector2(0,0),activeWheelTex.width);
 
 		}

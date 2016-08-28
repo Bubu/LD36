@@ -10,7 +10,6 @@ public class Blueprint {
 		this.armor = new Armor1 ();
 		this.wheel = new Wheel1 ();
 		this.weapon = new Catapult ();
-		this.weapon.ammo = new CatapultAmmo1 ();
 	}
 
 

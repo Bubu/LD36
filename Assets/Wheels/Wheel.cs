@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Wheel : Element{
+public abstract class Wheel : Element{
 
 }

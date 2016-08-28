@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Weapon : Element {
+public abstract class Weapon {
 
-	public Ammo ammo;
+	public Ammo[] possibleAmmo;
+	public Ammo activeAmmo;
 
-	// Use this for initialization
-	void Start () {
-	
+	public void selectAmmo(int ammoIndex){
+		activeAmmo = possibleAmmo[ammoIndex];
 	}
 
 	public abstract float getSpeed (Wheel wheel);

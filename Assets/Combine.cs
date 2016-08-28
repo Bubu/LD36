@@ -17,9 +17,12 @@ public class Combine : MonoBehaviour {
 
 	void Update () {
 		if (ds.activeBlueprint!=null){
-			Texture2D activeWheelTex = GameResources.Instance.wheelTexList [ds.activeBlueprint.wheel.texIndex];
-			Texture2D activeArmorTex = GameResources.Instance.armorTexList [ds.activeBlueprint.armor.texIndex];
-			Texture2D activeWeaponTex = GameResources.Instance.weaponTexList [ds.activeBlueprint.weapon.ammo.texIndex];
+			Debug.Log (ds.activeBlueprint.armor);
+			Debug.Log (ds.activeBlueprint.armor.getTexIndex());
+			Debug.Log (GameResources.Instance.armorTexList [ds.activeBlueprint.armor.getTexIndex()]);
+			Texture2D activeWheelTex = GameResources.Instance.wheelTexList [ds.activeBlueprint.wheel.getTexIndex()];
+			Texture2D activeArmorTex = GameResources.Instance.armorTexList [ds.activeBlueprint.armor.getTexIndex()];
+			Texture2D activeWeaponTex = GameResources.Instance.weaponTexList [ds.activeBlueprint.weapon.activeAmmo.getTexIndex()];
 
 			Texture2D combinedTex = CombineTextures (activeWeaponTex, activeArmorTex);
 			combinedTex = CombineTextures (combinedTex, activeWheelTex);

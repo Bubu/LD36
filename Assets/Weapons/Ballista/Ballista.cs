@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Ballista : MonoBehaviour {
+public class Ballista : Weapon {
 
-	// Use this for initialization
-	void Start () {
-	
+	public Ballista(){
+		possibleAmmo = new BallistaAmmo[3];
+		possibleAmmo [0] = new BallistaAmmo1 ();
+		possibleAmmo [1] = new BallistaAmmo2 ();
+		possibleAmmo [2] = new BallistaAmmo2 ();
+		selectAmmo (0);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public override float getSpeed (Wheel wheel) {
+		return 4.4f;
 	}
 }

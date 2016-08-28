@@ -15,7 +15,7 @@ public class ShowWeapon : MonoBehaviour {
 	
 	void Update () {
 		if (ds.activeBlueprint!=null){
-			Texture2D activeWeaponTex = GameResources.Instance.weaponTexList [ds.activeBlueprint.weapon.ammo.texIndex];
+			Texture2D activeWeaponTex = GameResources.Instance.weaponTexList [ds.activeBlueprint.weapon.activeAmmo.getTexIndex()];
 			image.sprite = Sprite.Create(activeWeaponTex,new Rect(0,0,activeWeaponTex.width,activeWeaponTex.height),new Vector2(0,0),activeWeaponTex.width);
 
 		}

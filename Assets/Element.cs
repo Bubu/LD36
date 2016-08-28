@@ -4,6 +4,6 @@ using System;
 
 public abstract class Element {
 
-	public int texIndex;
+	public abstract int getTexIndex();
 
 }

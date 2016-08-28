@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Ram : MonoBehaviour {
+public class Ram : Weapon {
 
-	// Use this for initialization
-	void Start () {
-	
+	public Ram(){
+		possibleAmmo = new RamAmmo[3];
+		possibleAmmo [0] = new RamAmmo1 ();
+		possibleAmmo [1] = new RamAmmo2 ();
+		possibleAmmo [2] = new RamAmmo2 ();
+		selectAmmo (0);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public override float getSpeed (Wheel wheel) {
+		return 4.4f;
 	}
 }

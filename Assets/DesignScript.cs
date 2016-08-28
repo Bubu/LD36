@@ -30,8 +30,6 @@ public class DesignScript : MonoBehaviour {
 		}
 		else if (weaponIndex == 1) {
 			selectedWeapon = new Ballista ();
-			Debug.Log ("Yolololo!!!");
-			Debug.Log (selectedWeapon.activeAmmo.getTexIndex());
 		}
 		else {
 			selectedWeapon = new Ram ();
@@ -54,4 +52,17 @@ public class DesignScript : MonoBehaviour {
 	public void selectAmmo(int ammoIndex){
 		activeBlueprint.weapon.selectAmmo (ammoIndex);
 	}
+
+	public void selectWheel(int wheelIndex){
+		Wheel selectedWheel = null;
+		if (wheelIndex == 0) {
+			selectedWheel = new Wheel1 ();
+		}
+		else if (wheelIndex == 1) {
+			selectedWheel = new Wheel2 ();
+		}
+		else {
+			selectedWheel = new Wheel2 ();
+		}
+		activeBlueprint.wheel = selectedWheel;}
 }

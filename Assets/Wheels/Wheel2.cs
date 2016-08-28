@@ -1,15 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Wheel2 : Wheel1 {
+public class Wheel2 : Wheel {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public override int getTexIndex(){
+		return 1;
 	}
 }

@@ -13,7 +13,7 @@ public class Blueprint {
 	}
 
 
-
-
-
+	public float getBuildTime(){
+		return  
+	}
 }

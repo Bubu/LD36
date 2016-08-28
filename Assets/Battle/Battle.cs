@@ -58,7 +58,7 @@ public class Battle : MonoBehaviour
 		Player winner = null;
 		foreach( Unit unit in units){
 			if (unit.checkDistance () <= 0) {
-				winner = unit.player;
+				winner = unit.stencil.player;
 			}
 		}
 		if (winner != null) {

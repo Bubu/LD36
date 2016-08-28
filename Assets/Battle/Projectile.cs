@@ -9,8 +9,7 @@ public abstract class Projectile
 	public bool colatteral;
 	public Unit origin;
 	public Unit target;
+	public bool dead;
 
-	public void step(){
-		//Do stuff
-	}
+	public abstract void step();
 }

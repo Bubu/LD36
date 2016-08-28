@@ -35,7 +35,7 @@ public class Stencil {
 		Texture2D activeWheelTex = GameResources.Instance.wheelTexList [blueprint.wheel.getTexIndex()];
 		Texture2D activeArmorTex = GameResources.Instance.armorTexList [blueprint.armor.getTexIndex()];
 		Texture2D activeWeaponTex = GameResources.Instance.weaponTexList [blueprint.weapon.activeAmmo.getTexIndex()];
-
+		sprite = createSprite (activeWeaponTex, activeArmorTex, activeWheelTex);
 	}
 
 	public Unit step(){

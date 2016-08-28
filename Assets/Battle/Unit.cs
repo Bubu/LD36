@@ -6,7 +6,6 @@ public class Unit
 {
 	public int position;
 	public bool dead;
-	public Player player;
 	public Stencil stencil;
 	public int curHp;
 	private int loadStep;
@@ -20,6 +19,8 @@ public class Unit
 
 		gameObject = new GameObject ();
 		gameObject.name = "A Weapon";
+		var sr = gameObject.AddComponent<SpriteRenderer>();
+		sr.sprite = stencil.sprite;
 		position = stencil.player.homePosition;
 		float x = (float)position*10;
 		gameObject.transform.position = new Vector3 (x, 0, 0);
@@ -50,7 +51,7 @@ public class Unit
 	public Unit checkForTarget(){
 		Unit target = null;
 		foreach (Unit otherUnit in stencil.battle.units) {
-			if (otherUnit.player != player) {
+			if (otherUnit.stencil.player != stencil.player) {
 				if (Math.Abs (otherUnit.position - position) < stencil.range) {
 					target = otherUnit;
 				}
@@ -60,7 +61,7 @@ public class Unit
 	}
 
 	public int checkDistance(){
-		return Math.Abs((Convert.ToInt32(target) * 1000) - position);
+		return Math.Abs((Convert.ToInt32(!stencil.player.isLeftPlayer) * 1000) - position);
 	}
 
 	public void launchProjectile(Unit target){

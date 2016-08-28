@@ -8,7 +8,6 @@ public class BallistaProjectile : Projectile {
 	public int curLivingTime;
 	public int speed;
 	public int damage;
-	public bool dead;
 	public Sprite sprite;
 	
 	// Update is called once per frame
@@ -21,7 +20,7 @@ public class BallistaProjectile : Projectile {
 		this.sprite = Sprite.Create(tex,new Rect(0,0,tex.width,tex.height),new Vector2(0,0),tex.width);
 	}
 
-	void step () {
+	public override void step () {
 
 		Unit target = checkForTarget ();
 		if (target != null) {
@@ -36,7 +35,7 @@ public class BallistaProjectile : Projectile {
 	public Unit checkForTarget(){
 		Unit target = null;
 		foreach (Unit otherUnit in origin.stencil.battle.units) {
-			if (otherUnit.player != origin.player) {
+			if (otherUnit.stencil.player != origin.stencil.player) {
 				if (Math.Abs (otherUnit.position - position) < origin.stencil.range) {
 					target = otherUnit;
 				}
@@ -46,7 +45,7 @@ public class BallistaProjectile : Projectile {
 	}
 
 	void move(){
-		if (origin.player.isLeftPlayer) {
+		if (origin.stencil.player.isLeftPlayer) {
 			position += speed;
 		} else {
 			position -= speed;

@@ -11,6 +11,9 @@ public class Battle : MonoBehaviour
 	public List<Unit> units;
 	public List<Projectile> projectiles;
 	private bool isRunning = false;
+	public GameObject endImage;
+	public GameObject uploadButton;
+
 
 	void Start ()
 	{
@@ -47,7 +50,6 @@ public class Battle : MonoBehaviour
 				winner = unit.player;
 			}
 		}
-		winner = players [0];
 		if (winner != null) {
 			isRunning = false;
 			showWinner (winner);
@@ -67,15 +69,13 @@ public class Battle : MonoBehaviour
 
 	private void showWinner (Player winner)
 	{
-		Image image = GameObject.Find ("EndImage").GetComponent<Image>();
-		image.sprite = Sprite.Create(GameResources.Instance.armorTexList [1],new Rect(0,0,image.preferredWidth,image.preferredHeight),new Vector2(0,0),image.preferredWidth);
-		image.gameObject.SetActive (true);
-		Text  text = GameObject.Find ("EndText").GetComponent<Text>();
+		Image image = endImage.GetComponent<Image>();
 		if (players [0] == winner) {
-			text.text = "You Won!";
+			image.sprite = GameResources.Instance.getSprite(GameResources.Instance.win);
 		} else {
-			text.text = "You Lost!";
+			image.sprite = GameResources.Instance.getSprite(GameResources.Instance.lose);
 		}
-		GameObject.Find ("UploadtButton").SetActive (true);
+		uploadButton.SetActive (true);
+		image.gameObject.SetActive (true);
 	}
 }

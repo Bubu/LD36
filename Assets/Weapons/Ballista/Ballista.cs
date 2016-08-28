@@ -7,7 +7,7 @@ public class Ballista : Weapon {
 		possibleAmmo = new BallistaAmmo[3];
 		possibleAmmo [0] = new BallistaAmmo1 ();
 		possibleAmmo [1] = new BallistaAmmo2 ();
-		possibleAmmo [2] = new BallistaAmmo2 ();
+		possibleAmmo [2] = new BallistaAmmo3 ();
 		selectAmmo (0);
 	}
 

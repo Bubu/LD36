@@ -5,22 +5,53 @@ using System;
 
 public class DesignScript : MonoBehaviour {
 
-	public Blueprint[] warplan;
+	public Warplan warplan;
 	public Blueprint activeBlueprint;
 
 	// Use this for initialization
 	void Start () {
 		DontDestroyOnLoad (this);
-		warplan = new Blueprint[3];
-		for (int i=0; i<3; i++){
-			warplan[i] = new Blueprint();
-		}
-		activeBlueprint = warplan [0];
-		Debug.Log ("huhu!");
+		warplan = new Warplan();
+		activeBlueprint = warplan.blueprints [0];
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+	}
+
+	public void selActiveBlueprint(int blueprintIndex){
+		activeBlueprint = warplan.blueprints [blueprintIndex];
+	}
+
+	public void selectWeapon(int weaponIndex){
+		Weapon selectedWeapon = null;
+		if (weaponIndex == 0) {
+			selectedWeapon = new Catapult ();
+		}
+		else if (weaponIndex == 1) {
+			selectedWeapon = new Ballista ();
+			Debug.Log ("Yolololo!!!");
+			Debug.Log (selectedWeapon.activeAmmo.getTexIndex());
+		}
+		else {
+			selectedWeapon = new Ram ();
+		}
+		activeBlueprint.weapon = selectedWeapon;}
+
+	public void selectArmor(int armorIndex){
+		Armor selectedArmor = null;
+		if (armorIndex == 0) {
+			selectedArmor = new Armor1 ();
+		}
+		else if (armorIndex == 1) {
+			selectedArmor = new Armor2 ();
+		}
+		else {
+			selectedArmor = new Armor2 ();
+		}
+		activeBlueprint.armor = selectedArmor;}
+
+	public void selectAmmo(int ammoIndex){
+		activeBlueprint.weapon.selectAmmo (ammoIndex);
 	}
 }

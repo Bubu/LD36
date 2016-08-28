@@ -4,6 +4,8 @@ using System;
 
 public class CatapultAmmo1 : CatapultAmmo {
 
-	public new int texIndex = 0;
+	public override int getTexIndex(){
+		return 0;
+	}
 
 }

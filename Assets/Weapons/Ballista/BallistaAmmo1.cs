@@ -1,15 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BallistaAmmo1 : MonoBehaviour {
+public class BallistaAmmo1 : BallistaAmmo {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public override int getTexIndex(){
+		return 3;
 	}
 }

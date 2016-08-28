@@ -12,12 +12,22 @@ public class GameResources {
 
 	private GameResources(){
 		weaponTexList = new List<Texture2D> (new Texture2D [] {
-			loadTex ("katapult_gut")
+			loadTex ("katapult_schlecht"),
+			loadTex ("katapult_gut"),
+			loadTex ("katapult_fehlt"),
+			loadTex ("baliste_schlecht"),
+			loadTex ("baliste_gut"),
+			loadTex ("baliste_fehlt"),
+			loadTex ("rammbock_schlecht"),
+			loadTex ("rammbock_gut"),
+			loadTex ("rammbock_fehlt"),
 		});
 		wheelTexList = new List<Texture2D> (new Texture2D [] {
+			loadTex ("rad_schlecht"),
 			loadTex ("rad_gut")
 		});
 		armorTexList = new List<Texture2D> (new Texture2D [] {
+			loadTex ("rahmen_schlecht"),
 			loadTex ("rahmen_gut")
 		});
 	}

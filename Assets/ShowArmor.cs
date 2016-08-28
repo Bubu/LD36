@@ -37,7 +37,7 @@ public class ShowArmor : MonoBehaviour {
 
 			designSprite = Sprite.Create(designTexture,new Rect(0,0,300,227),new Vector2(0,0),300);
 			*/
-			Texture2D activeArmorTex = GameResources.Instance.armorTexList [ds.activeBlueprint.armor.texIndex];
+			Texture2D activeArmorTex = GameResources.Instance.armorTexList [ds.activeBlueprint.armor.getTexIndex()];
 			image.sprite = Sprite.Create(activeArmorTex,new Rect(0,0,activeArmorTex.width,activeArmorTex.height),new Vector2(0,0),activeArmorTex.width);
 
 		}

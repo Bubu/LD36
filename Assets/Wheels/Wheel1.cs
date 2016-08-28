@@ -3,5 +3,7 @@ using System.Collections;
 
 public class Wheel1 : Wheel {
 
-	public new int texIndex = 0;
+	public override int getTexIndex(){
+		return 0;
+	}
 }

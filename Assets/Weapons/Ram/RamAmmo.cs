@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Ammo : Element {
+public abstract class RamAmmo : Ammo {
 
 }

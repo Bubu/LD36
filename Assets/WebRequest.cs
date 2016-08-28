@@ -21,12 +21,19 @@ public class WebRequest : MonoBehaviour {
 	}
 
 	public void doRequest() {
+		var js = new JavaScriptSerializer (new SimpleTypeResolver());
 		var client = new WebClient();
 		client.Headers.Add("Content-Type","application/json");
-		string json = new JavaScriptSerializer ().Serialize (testplan);
+		string json = js.Serialize (testplan);
 		byte[] data = Encoding.ASCII.GetBytes(json);
 		byte[] responseArray = client.UploadData ("http://localhost:8080/plans",data);
+		var response = Encoding.ASCII.GetString (responseArray);
+		Debug.Log ("\nResponse received was: " + response);
 
-		Debug.Log ("\nResponse received was: " + Encoding.ASCII.GetString(responseArray));
+		var dict = js.Deserialize<Dictionary<string,int>> (response);
+		response = client.DownloadString ("http://localhost:8080/plans/" + dict ["id"]);
+		Debug.Log (response);
+		Warplan wp = js.Deserialize<Warplan>(response);
+		Debug.Log (wp.blueprints [1].armor.GetType ());
 	}
 }

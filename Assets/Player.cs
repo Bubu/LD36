@@ -13,4 +13,11 @@ public class Player  {
 			stencils [i] = new Stencil (warplan.blueprints[i]);
 		}
 	}
+	public Player(Warplan warplan){
+		this.warplan = warplan;
+		this.stencils = new Stencil[3];
+		for (int i = 0; i < stencils.Length; i++) {
+			stencils [i] = new Stencil (warplan.blueprints[i]);
+		}
+	}
 }

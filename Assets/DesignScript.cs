@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement; 
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -101,5 +102,10 @@ public class DesignScript : MonoBehaviour {
 		else {
 			selectedWheel = new Wheel3 ();
 		}
-		warplan.blueprints[blueprintNo].wheel = selectedWheel;}
+		warplan.blueprints[blueprintNo].wheel = selectedWheel;
+	}
+
+	public void startGame(){
+		SceneManager.LoadScene ("Battle");
+	}
 }

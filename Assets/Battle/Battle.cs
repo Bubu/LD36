@@ -13,14 +13,16 @@ public class Battle : MonoBehaviour
 	private bool isRunning = false;
 	public GameObject endImage;
 	public GameObject uploadButton;
+	public DesignScript ds;
 
 
 	void Start ()
 	{
-		this.battleField = new BattleField();
+		ds = GameObject.Find ("InitDesign").GetComponent<DesignScript> ();
+		//this.battleField = new BattleField();
 		players = new Player[2];
-		players[0] = new Player();
-		players[1] = new Player();
+		players[0] = new Player(ds.warplan);
+		players[1] = new Player(ds.warplan);
 		units = new List<Unit>();
 		projectiles = new List<Projectile>();
 	}

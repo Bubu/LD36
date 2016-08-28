@@ -15,14 +15,21 @@ public class Stencil {
 		this.hp = blueprint.armor.getHp ();
 		this.speed = blueprint.getSpeed();
 		this.damage = blueprint.getDamage ();
-	}
-	
-	public Unit createUnit(){
-		Unit unit = new Unit ();
-		return unit;
+		this.buildTime = blueprint.getBuildTime ();
+
+		this.buildStep = 0;
+
+		//this.sprite 
 	}
 
 	public Unit step(){
-		return null;
+		buildStep = (buildStep + 1)%buildTime;
+		if (buildStep == 0) {
+			return new Unit (this);
+		} else {
+			return null;
+		}
+			
 	}
+			
 }

@@ -41,17 +41,17 @@ public class Stencil {
 	public Unit step(){
 		buildStep = (buildStep + 1)%buildTime;
 		if (buildStep == 0) {
+			buildStep = buildTime;
 			return new Unit (this);
 		} else {
 			return null;
 		}
-			
 	}
 
 	private Sprite createSprite(Texture2D weaponTex, Texture2D armorTex, Texture2D wheelTex){
 		Texture2D combinedTex = CombineTextures (weaponTex, armorTex);
 		combinedTex = CombineTextures (combinedTex, wheelTex);
-		sprite = Sprite.Create(combinedTex,new Rect(0,0,combinedTex.width,combinedTex.height),new Vector2(0,0),combinedTex.width);
+		sprite = Sprite.Create(combinedTex,new Rect(0,0,combinedTex.width,combinedTex.height),new Vector2(0.5f,0.5f));
 		return sprite;
 		}
 
@@ -65,9 +65,6 @@ public class Stencil {
 			Color[] aCopyTexturePixels = aToCopyTexture.GetPixels();
 			Color[] aColorList = new Color[aBaseTexturePixels.Length];
 			int aPixelLength = Math.Min(aBaseTexturePixels.Length, aCopyTexturePixels.Length);
-
-			//Debug.Log (aPixelLength);
-			//Debug.Log (aCopyTexturePixels.Length);
 
 			for(int p = 0; p < aPixelLength; p++)
 			{

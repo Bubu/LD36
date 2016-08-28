@@ -9,7 +9,7 @@ public class Catapult : Weapon {
 		possibleAmmo = new CatapultAmmo[3];
 		possibleAmmo [0] = new CatapultAmmo1 ();
 		possibleAmmo [1] = new CatapultAmmo2 ();
-		possibleAmmo [2] = new CatapultAmmo2 ();
+		possibleAmmo [2] = new CatapultAmmo3 ();
 		selectAmmo (0);
 	}
 

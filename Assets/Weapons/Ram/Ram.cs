@@ -7,7 +7,7 @@ public class Ram : Weapon {
 		possibleAmmo = new RamAmmo[3];
 		possibleAmmo [0] = new RamAmmo1 ();
 		possibleAmmo [1] = new RamAmmo2 ();
-		possibleAmmo [2] = new RamAmmo2 ();
+		possibleAmmo [2] = new RamAmmo3 ();
 		selectAmmo (0);
 	}
 

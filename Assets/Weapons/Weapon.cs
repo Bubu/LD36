@@ -11,5 +11,6 @@ public abstract class Weapon {
 	}
 
 	public abstract float getSpeed (Wheel wheel);
+	public abstract float getBaseTime ();
 
 }

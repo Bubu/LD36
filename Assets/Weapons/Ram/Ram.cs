@@ -14,4 +14,7 @@ public class Ram : Weapon {
 	public override float getSpeed (Wheel wheel) {
 		return 4.4f;
 	}
+	public override float getBaseTime(){
+		return 3f;
+	}
 }

@@ -14,6 +14,6 @@ public class Blueprint {
 
 
 	public float getBuildTime(){
-		return  
+		return this.weapon.getBaseTime (); 
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public class Unit
 {
@@ -8,12 +9,19 @@ public class Unit
 	public Stencil stencil;
 	public int curHp;
 	private int loadStep;
+	public GameObject gameObject;
 
 	public Unit (Stencil stencil)
 	{
 		this.stencil = stencil;
 		this.curHp = stencil.hp;
 		this.loadStep = 0;
+
+		gameObject = new GameObject ();
+		gameObject.name = "A Weapon";
+		position = stencil.player.spawnPosition;
+		float x = (float)position*10;
+		gameObject.transform.position = new Vector3 (x, 0, 0);
 	}
 
 	public void step(){

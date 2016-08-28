@@ -11,7 +11,7 @@ public class Stencil {
 	public float damage;
 	//public Blueprint blueprint;
 
-	public Stancil(Blueprint blueprint){
+	public Stencil(Blueprint blueprint){
 		this.hp = blueprint.armor.getHp ();
 		this.speed = blueprint.getSpeed();
 		this.damage = blueprint.getDamage ();
@@ -29,5 +29,9 @@ public class Stencil {
 	public Unit createUnit(){
 		Unit unit = new Unit ();
 		return unit;
+	}
+
+	public Unit step(){
+		return null;
 	}
 }

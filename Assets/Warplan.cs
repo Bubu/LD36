@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class warplan : MonoBehaviour {
+public class Warplan {
+	public Blueprint[] blueprints;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public Warplan(){
+		blueprints = new Blueprint[3];
+		for( int i = 0; i<blueprints.Length; i++) {
+			blueprints[i] = new Blueprint ();
+		}
 	}
 }

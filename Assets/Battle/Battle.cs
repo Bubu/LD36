@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections.Generic;
 
@@ -39,16 +40,42 @@ public class Battle : MonoBehaviour
 		checkWin ();
 	}
 
-	private void checkWin(){
+	public void checkWin(){
 		Player winner = null;
 		foreach( Unit unit in units){
 			if (unit.checkDistance () <= 0) {
 				winner = unit.player;
 			}
 		}
+		winner = players [0];
 		if (winner != null) {
 			isRunning = false;
-			//showWinner
+			showWinner (winner);
 		}
+	}
+
+	public void FixedUpdate(){
+		if (isRunning) {
+			step ();
+		}
+	}
+
+	public void startBattle(){
+		this.isRunning = true;
+		GameObject.Find ("StartButton").SetActive (false);
+	}
+
+	private void showWinner (Player winner)
+	{
+		Image image = GameObject.Find ("EndImage").GetComponent<Image>();
+		image.sprite = Sprite.Create(GameResources.Instance.armorTexList [1],new Rect(0,0,image.preferredWidth,image.preferredHeight),new Vector2(0,0),image.preferredWidth);
+		image.gameObject.SetActive (true);
+		Text  text = GameObject.Find ("EndText").GetComponent<Text>();
+		if (players [0] == winner) {
+			text.text = "You Won!";
+		} else {
+			text.text = "You Lost!";
+		}
+		GameObject.Find ("UploadtButton").SetActive (true);
 	}
 }

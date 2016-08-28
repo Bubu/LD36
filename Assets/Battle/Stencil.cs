@@ -17,21 +17,19 @@ public class Stencil {
 		this.damage = blueprint.getDamage ();
 		this.buildTime = blueprint.getBuildTime ();
 
-		this.sprite 
-	}
+		this.buildStep = 0;
 
-	public step(){
-		buildStep = (buildStep + 1)%buildTime;
-		if (buildStep==0){
-			return 
-			
-	}
-	public Unit createUnit(){
-		Unit unit = new Unit ();
-		return unit;
+		//this.sprite 
 	}
 
 	public Unit step(){
-		return null;
+		buildStep = (buildStep + 1)%buildTime;
+		if (buildStep == 0) {
+			return new Unit (this);
+		} else {
+			return null;
+		}
+			
 	}
+			
 }

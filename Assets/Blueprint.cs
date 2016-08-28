@@ -13,8 +13,8 @@ public class Blueprint {
 	}
 
 
-	public float getBuildTime(){
-		return this.weapon.getBaseTime () * getTimefactorForLevel(armor.getLevel()) * getTimefactorForLevel(wheel.getLevel())* getTimefactorForLevel(weapon.activeAmmo.getLevel()); 
+	public int getBuildTime(){
+		return (int)(this.weapon.getBaseTime () * getTimefactorForLevel(armor.getLevel()) * getTimefactorForLevel(wheel.getLevel())* getTimefactorForLevel(weapon.activeAmmo.getLevel())); 
 	}
 
 	private float getTimefactorForLevel(int level){

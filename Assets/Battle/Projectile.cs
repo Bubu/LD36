@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public abstract class Projectile
 {	
@@ -10,6 +11,8 @@ public abstract class Projectile
 	public Unit origin;
 	public Unit target;
 	public bool dead;
+	public GameObject gameObject;
+	Camera camera;
 
 	public abstract void step();
 }

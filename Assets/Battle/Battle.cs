@@ -42,19 +42,26 @@ public class Battle : MonoBehaviour
 		foreach( Unit unit in units){
 				unit.step ();
 		}
+		var newprojectiles = new List<Projectile> ();
 		foreach( Projectile projectile in projectiles){
-			if (projectile.dead) {
-				projectiles.Remove (projectile);
-			} else {
+			if (!projectile.dead) {
 				projectile.step ();
+				newprojectiles.Add (projectile);
+			} else {
+				Destroy (projectile.gameObject);
 			}
 		}
+		projectiles = newprojectiles;
+
+		var newunits = new List<Unit>();
 		foreach( Unit unit in units){
-			if (unit.dead) {
+			if (!unit.dead) {
+				newunits.Add (unit);
+			} else {
 				Destroy (unit.gameObject);
-				units.Remove (unit);
 			}
 		}
+		units = newunits;
 		checkWin ();
 	}
 

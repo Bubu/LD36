@@ -18,7 +18,7 @@ public class Catapult : Weapon {
 	public override int getRange(){ return 10; }
 	public override int getLoadTime(){ return 10; }
 	public override Projectile attack(Unit target, Unit origin){
-		return new BallistaProjectile(origin, activeAmmo.getDamage(), GameResources.Instance.projectileTexList [activeAmmo.getTexIndex()]);
+		return new CatapultProjectile(target, origin, activeAmmo.getDamage(), getRange(), GameResources.Instance.projectileTexList [activeAmmo.getTexIndex()]);
 	}
 
 }

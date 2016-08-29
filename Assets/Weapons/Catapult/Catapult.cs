@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Catapult : Weapon {
 
-	public new CatapultAmmo activeAmmo;
-
 	public Catapult(){
 		possibleAmmo = new CatapultAmmo[3];
 		possibleAmmo [0] = new CatapultAmmo1 ();
@@ -20,5 +18,4 @@ public class Catapult : Weapon {
 	public override Projectile attack(Unit target, Unit origin){
 		return new BallistaProjectile(origin, activeAmmo.getDamage(), GameResources.Instance.projectileTexList [activeAmmo.getTexIndex()]);
 	}
-
 }

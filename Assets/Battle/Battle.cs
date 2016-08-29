@@ -11,16 +11,18 @@ public class Battle : MonoBehaviour
 	public List<Unit> units;
 	public List<Projectile> projectiles;
 	private bool isRunning = false;
+	public int width = 1000;
 	public int leftHomePosition = 0;
 	public int rightHomePosition = 1000;
 	public GameObject endImage;
 	public GameObject uploadButton;
 	public DesignScript ds;
+	public Camera m_camera;
 
 	void Start ()
 	{
 		ds = GameObject.Find ("InitDesign").GetComponent<DesignScript> ();
-		//this.battleField = new BattleField();
+		m_camera = GameObject.Find ("Main Camera").GetComponent<Camera> ();
 		players = new Player[2];
 		players[0] = new Player(ds.warplan, true, this);
 		players[1] = new Player(ds.warplan, false, this);
@@ -31,24 +33,26 @@ public class Battle : MonoBehaviour
 	public void step(){
 		foreach(Player player in players){
 			foreach (Stencil stencil in  player.stencils) {
-				var newunit = stencil.step ();
-				if (newunit != null) {
-					units.Add (newunit);
-				}
+					var newunit = stencil.step ();
+					if (newunit != null) {
+						units.Add (newunit);
+					}
 			}
 		}
 		foreach( Unit unit in units){
-			if (unit.dead) { 
-				units.Remove (unit);
-			} else {
 				unit.step ();
-			}
 		}
 		foreach( Projectile projectile in projectiles){
 			if (projectile.dead) {
 				projectiles.Remove (projectile);
 			} else {
 				projectile.step ();
+			}
+		}
+		foreach( Unit unit in units){
+			if (unit.dead) {
+				Destroy (unit.gameObject);
+				units.Remove (unit);
 			}
 		}
 		checkWin ();

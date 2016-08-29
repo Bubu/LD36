@@ -13,7 +13,9 @@ public class Player  {
 	public Player(Warplan warplan, bool isLeftPlayer, Battle battle){
 		this.warplan = warplan;
 		this.isLeftPlayer = isLeftPlayer;
-		this.warplan = new Warplan();
+		if (this.warplan == null) {
+			this.warplan = new Warplan ();
+		}
 		this.stencils = new Stencil[3];
 		for (int i = 0; i < stencils.Length; i++) {
 			stencils [i] = new Stencil (warplan.blueprints[i], this, battle);

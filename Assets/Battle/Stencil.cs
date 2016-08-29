@@ -30,7 +30,7 @@ public class Stencil {
 
 		this.blueprint = blueprint;
 
-		this.buildStep = 0;
+		this.buildStep = buildTime -1;
 
 		Texture2D activeWheelTex = GameResources.Instance.wheelTexList [blueprint.wheel.getTexIndex()];
 		Texture2D activeArmorTex = GameResources.Instance.armorTexList [blueprint.armor.getTexIndex()];
@@ -42,7 +42,7 @@ public class Stencil {
 		buildStep = (buildStep + 1)%buildTime;
 		if (buildStep == 0) {
 			buildStep = buildTime;
-			return new Unit (this);
+			return new Unit (this, battle.m_camera);
 		} else {
 			return null;
 		}

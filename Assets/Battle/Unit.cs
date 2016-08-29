@@ -10,8 +10,9 @@ public class Unit
 	public int curHp;
 	private int loadStep;
 	public GameObject gameObject;
+	Camera camera;
 
-	public Unit (Stencil stencil)
+	public Unit (Stencil stencil, Camera camera)
 	{
 		this.stencil = stencil;
 		this.curHp = stencil.hp;
@@ -20,10 +21,14 @@ public class Unit
 		gameObject = new GameObject ();
 		gameObject.name = "A Weapon";
 		var sr = gameObject.AddComponent<SpriteRenderer>();
+
+		this.camera = camera;
+		if (stencil.player.isLeftPlayer) {
+			sr.flipX = true;
+		}
 		sr.sprite = stencil.sprite;
 		position = stencil.player.homePosition;
-		float x = (float)position*10;
-		gameObject.transform.position = new Vector3 (x, 0, 0);
+		gameObject.transform.position = getScreenPosition();
 	}
 
 	public Projectile step(){
@@ -61,15 +66,20 @@ public class Unit
 	}
 
 	public int checkDistance(){
-		return Math.Abs((Convert.ToInt32(!stencil.player.isLeftPlayer) * 1000) - position);
-	}
-
-	public void launchProjectile(Unit target){
-		
+		if (stencil.player.isLeftPlayer) {
+			return stencil.battle.width - position;
+		} else {
+			return position;
+		}
 	}
 
 	public void move(){
-		
+		if (stencil.player.isLeftPlayer) {
+			position = position + (int)stencil.speed;
+		} else {
+			position = position - (int)stencil.speed;
+		}
+		gameObject.transform.position = getScreenPosition();
 	}
 
 	public void makeDamage(int damage){
@@ -77,5 +87,12 @@ public class Unit
 		if (curHp <= 0) {
 			dead = true;
 		}
+	}
+
+	Vector3 getScreenPosition ()
+	{
+		float viewportWidth = camera.orthographicSize * camera.aspect * 2;
+		float viewPortHeigth = camera.orthographicSize * 2;
+		return new Vector3 ( (viewportWidth * 0.05f ) + viewportWidth * ((float)position / stencil.battle.width * 0.9f), viewPortHeigth * 0.1f, 0f);
 	}
 }
